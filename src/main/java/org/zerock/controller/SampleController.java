@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.zerock.domain.SampleDTO;
 import org.zerock.domain.SampleDTOList;
 import org.zerock.domain.TodoDTO;
@@ -25,8 +26,8 @@ public class SampleController {
 	}
 
 	@GetMapping("/ex02")
-	public String ex02(@RequestParam("name") String name
-			, @RequestParam("age") int age) {
+	public String ex02(@RequestParam("name1") String name
+			, @RequestParam("age1") int age) { //http://localhost:8080/sample/ex02?name1=vvv&age1=444
 		
 		log.info("sample ex02");
 		log.info(name);
@@ -94,6 +95,19 @@ public class SampleController {
 		log.info(page);
 		
 		return "/sample/ex04";
+	}
+	
+	
+	//146page
+	@GetMapping("/ex06")
+	public @ResponseBody SampleDTO ex06() {
+		log.info("/ex06..............");
+		
+		SampleDTO dto = new SampleDTO();
+		dto.setAge(10);
+		dto.setName("홍길동");
+		
+		return dto;
 	}
 }
 
