@@ -1,11 +1,8 @@
 package org.zerock.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-@Getter
-@Setter
-@ToString
+import lombok.Data;
+
+@Data
 public class SampleDTO {
 	
 		private String name;
